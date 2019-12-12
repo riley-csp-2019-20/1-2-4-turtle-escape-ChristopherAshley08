@@ -2,17 +2,20 @@
 
 import turtle as trtl
 joe=trtl.Turtle()
+joe._delay(0)
 import random
 import turtle as player
 player=player.Turtle()
+import turtle as clickcount
+clickcount=clickcount.Turtle
 
 #===================variables===================
 
-numwalls= 30
+numwalls= 120
 pencolor = "red"
 distancewall=600 
-wall_width = 20
-door_width=40
+wall_width = 5
+door_width=10
 
 #===================setup===================
 
@@ -26,9 +29,11 @@ joe.right(90)
 joe.pendown()
 
 player.pencolor("blue")
-player.pensize(5)
+player.pensize(1)
 player.speed(0)
+player.ht()
 
+clicks = 0
 eraser=0
 
 #===================def====================
@@ -46,19 +51,19 @@ def drawbarrier():
 
 def up():
     player.setheading(90)
-    player.forward(10)
+    player.forward(1)
 
 def right():
     player.setheading(0)
-    player.forward(10)
+    player.forward(1)
 
 def left():
     player.setheading(180)
-    player.forward(10)
+    player.forward(1)
 
 def down():
     player.setheading(90*3)
-    player.forward(10)
+    player.forward(1)
 
 def erase():
     global eraser
@@ -101,6 +106,10 @@ wn.onkeypress(up,"w")
 wn.onkeypress(left,"a")
 wn.onkeypress(down,"s")
 wn.onkeypress(right,"d")
+wn.onkeypress(up,"Up")
+wn.onkeypress(left,"Left")
+wn.onkeypress(down,"Down")
+wn.onkeypress(right,"Right")
 wn.onkeypress(erase,"e")
 wn.listen()
 
